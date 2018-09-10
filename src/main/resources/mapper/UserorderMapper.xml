@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.UserorderMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Userorder" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_userId" property="orderUserid" jdbcType="INTEGER" />
+    <result column="order_bookId" property="orderBookid" jdbcType="INTEGER" />
+    <result column="order_bookName" property="orderBookname" jdbcType="VARCHAR" />
+    <result column="order_bookNum" property="orderBooknum" jdbcType="INTEGER" />
+    <result column="order_state" property="orderState" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

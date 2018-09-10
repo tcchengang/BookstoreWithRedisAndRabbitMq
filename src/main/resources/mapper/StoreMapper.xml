@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.StoreMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.pojo.Store" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="store_id" property="storeId" jdbcType="INTEGER" />
+    <result column="book_id" property="bookId" jdbcType="VARCHAR" />
+    <result column="store_leftnum" property="storeLeftnum" jdbcType="INTEGER" />
+    <result column="store_salednum" property="storeSalednum" jdbcType="INTEGER" />
+    <result column="store_money" property="storeMoney" jdbcType="REAL" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>login</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/normalize.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/demo.css}"/>
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/component.css}" />
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}" />
+    <script type="text/javascript" th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <!-- jquery-validator -->
+    <script type="text/javascript" th:src="@{/jquery-validation/jquery.validate.min.js}"></script>
+    <script type="text/javascript" th:src="@{/jquery-validation/localization/messages_zh.min.js}"></script>
+    <!-- layer -->
+    <script type="text/javascript" th:src="@{/layer/layer.js}"></script>
+    <!-- md5.js -->
+    <script type="text/javascript" th:src="@{/js/md5.min.js}"></script>
+    <!-- common.js -->
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+<!--[if IE]>
+<script src="/static/js/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+		<div class="container demo-1">
+			<div class="content">
+				<div id="large-header" class="large-header">
+					<canvas id="demo-canvas"></canvas>
+					<div class="logo_box">
+						<h3>欢迎你</h3>
+						<form  name="loginForm" id="loginForm" method="post">
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input name="logname" id="logname" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入用户名">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="logpass" id="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+							</div>
+							<div class="mb2"><button class="act-but submit" style="color: #FFFFFF" type="submit" onclick="login()">登录</button></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<script th:src="@{/js/TweenLite.min.js}"></script>
+		<script th:src="@{/js/EasePack.min.js}"></script>
+		<script th:src="@{/js/rAF.js}"></script>
+		<script th:src="@{/js/demo-1.js}"></script>
+		<div style="text-align:center;">
+	</div>
+</body>
+<script>
+	function login(){
+		$("#loginForm").validate({
+			submitHandler:function(form){
+				dologin();
+			}
+		});
+	}
+	function dologin(){
+		var userPass=$("#logpass").val();
+		var userName=$("#logname").val();
+		$.ajax({
+			url:"/login/doLogin",
+			data:{
+				userName:userName,
+				userPass:userPass
+			},
+			success:function(data){
+				if(data.code == 0){
+		    		layer.msg("成功");
+		    		window.location.href="/goods/toList";
+		    	}else{
+		    		layer.msg(data.msg);
+		    	}
+			}
+		});
+	}
+</script>
+</html>
