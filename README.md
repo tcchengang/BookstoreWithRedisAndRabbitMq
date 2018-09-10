@@ -1,1 +1,2 @@
-# springbootDemo
+#图书销售秒杀系统
+该系统是基于之前写的图书销售进行升级https://github.com/tcchengang/BookStoreBySpringboot ，在原有的基础上加入redis和rabbitmq技术实现秒杀，该系统还在不断修改和完善中
